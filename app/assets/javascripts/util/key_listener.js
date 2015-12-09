@@ -9,22 +9,6 @@ Keys = {
   84: "D"   // t
 };
 
-KeyActions = {
-  keyPressed: function (key) {
-    AppDispatcher.dispatch({
-      actionType: "ADD_KEY",
-      noteName: key
-    });
-  },
-
-  keyReleased: function (key) {
-    AppDispatcher.dispatch({
-      actionType: "REMOVE_KEY",
-      noteName: key
-    });
-  }
-};
-
 $(document).on("keydown", function (e) {
   if (Object.keys(Keys).indexOf(e.keyCode.toString()) !== -1 ) {
     KeyActions.keyPressed(Keys[e.keyCode]);

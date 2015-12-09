@@ -25,17 +25,21 @@ var Recorder = React.createClass({
     this.state.track.play();
   },
 
+  saveRecording: function () {
+    TrackActions.saveTrack(this.track);
+  },
+
   render: function () {
     return (
       <div className="recorder">
         <div className="recorder-start" onClick={this.startRecording}>
           Record
         </div>
-        <div className="recorder-play" onClick={this.playRecording}>
-          Play
-        </div>
         <div className="recorder-stop" onClick={this.stopRecording}>
           Stop
+        </div>
+        <div className="recorder-save" onClick={this.saveRecording}>
+          Save
         </div>
       </div>
     );

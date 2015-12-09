@@ -8,6 +8,7 @@ var Organ = React.createClass({
           })
         }
         <Recorder/>
+        <Jukebox/>
       </div>
     );
   }
