@@ -1,6 +1,10 @@
 var Recorder = React.createClass({
   getInitialState: function () {
-    return {isRecording: false, track: new Track({})};
+    return {
+      isRecording: false,
+      track: new Track({}),
+      title: ""
+    };
   },
 
   componentDidMount: function () {
@@ -29,6 +33,10 @@ var Recorder = React.createClass({
     TrackActions.saveTrack(this.track);
   },
 
+  updateTitle: function (e) {
+    this.setState({title: e.currentTarget.value});
+  },
+
   render: function () {
     return (
       <div className="recorder">
@@ -38,6 +46,10 @@ var Recorder = React.createClass({
         <div className="recorder-stop" onClick={this.stopRecording}>
           Stop
         </div>
+        <input type="text"
+               className="title-input"
+               value={this.title}
+               onChange={this.updateTitle}/>
         <div className="recorder-save" onClick={this.saveRecording}>
           Save
         </div>

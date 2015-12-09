@@ -10,7 +10,10 @@ Keys = {
 };
 
 $(document).on("keydown", function (e) {
-  if (Object.keys(Keys).indexOf(e.keyCode.toString()) !== -1 ) {
+  if (
+    Object.keys(Keys).indexOf(e.keyCode.toString()) !== -1 &&
+    e.currentTarget.activeElement.className !== "title-input"
+  ) {
     KeyActions.keyPressed(Keys[e.keyCode]);
   }
 });
