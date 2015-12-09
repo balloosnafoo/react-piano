@@ -31,11 +31,15 @@ var Recorder = React.createClass({
 
   saveRecording: function () {
     TrackActions.saveTrack(this.state.track);
+    this.setState({
+      track: new Track({}),
+      title: ""
+    });
   },
 
   updateTitle: function (e) {
     this.setState({title: e.currentTarget.value});
-    this.state.track.setName(this.state.title);
+    this.state.track.setName(e.currentTarget.value);
   },
 
   render: function () {
@@ -49,7 +53,7 @@ var Recorder = React.createClass({
         </div>
         <input type="text"
                className="title-input"
-               value={this.title}
+               value={this.state.title}
                onChange={this.updateTitle}/>
         <div className="recorder-save" onClick={this.saveRecording}>
           Save

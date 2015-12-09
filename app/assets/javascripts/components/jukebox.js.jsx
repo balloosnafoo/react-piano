@@ -28,6 +28,11 @@ var Jukebox = React.createClass({
     return (
       <div className="jukebox">
         { selectedTrack }
+        {
+          this.state.tracks.map(function (track) {
+            return <TrackPlayer track={track}/>;
+          })
+        }
         <div className="play" onClick={this.playRecording}>
           Play
         </div>
