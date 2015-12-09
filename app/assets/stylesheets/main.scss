@@ -1,0 +1,11 @@
+.key {
+  height: 100px;
+  width: 100px;
+  background-color: green;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+}
+
+.key.pressed {
+  background-color: red;
+}
