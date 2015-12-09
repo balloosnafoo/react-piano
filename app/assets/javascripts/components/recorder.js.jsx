@@ -30,7 +30,7 @@ var Recorder = React.createClass({
   },
 
   saveRecording: function () {
-    TrackActions.saveTrack(this.track);
+    TrackActions.saveTrack(this.state.track);
   },
 
   updateTitle: function (e) {

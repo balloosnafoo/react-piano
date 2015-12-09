@@ -2,14 +2,14 @@ TrackActions = {
   saveTrack: function (track) {
     AppDispatcher.dispatch({
       actionType: "SAVE_TRACK",
-      payload: track
+      track: track
     });
   },
 
   deleteTrack: function (track) {
     AppDispatcher.dispatch({
       actionType: "DELETE_TRACK",
-      payload: track
+      track: track
     });
   },
 };

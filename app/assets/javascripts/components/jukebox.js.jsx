@@ -5,19 +5,22 @@ var Jukebox = React.createClass({
 
   componentDidMount: function () {
     TrackStore.on('track-update', function () {
-      this.setState({tracks: TrackStore.all()});
+      this.setState({
+        tracks: TrackStore.all(),
+        selectedTrack: TrackStore.all().length - 1
+      });
     }.bind(this));
   },
 
   playRecording: function () {
-    this.state.track.play();
+    this.state.tracks[this.state.selectedTrack].play();
   },
 
   render: function () {
     var selectedTrack;
     if (this.state.selectedTrack !== -1) {
       selectedTrack = (
-        <div>this.state.tracks[this.state.selectedTrack].name</div>
+        <div>{this.state.tracks[this.state.selectedTrack].name}</div>
       );
     } else {
       selectedTrack = <div>Jukebox is empty</div>;
@@ -25,7 +28,7 @@ var Jukebox = React.createClass({
     return (
       <div className="jukebox">
         { selectedTrack }
-        <div className="play">
+        <div className="play" onClick={this.playRecording}>
           Play
         </div>
         <div className="delete">

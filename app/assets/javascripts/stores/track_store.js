@@ -3,7 +3,7 @@
 
   var TrackStore = root.TrackStore = $.extend({}, EventEmitter.prototype, {
     all: function () {
-      return _tracks.splice();
+      return _tracks.slice();
     },
 
     add: function (track) {
@@ -17,7 +17,7 @@
 
   AppDispatcher.register(function (payload) {
     switch (payload.actionType) {
-      case "ADD_TRACK":
+      case "SAVE_TRACK":
         TrackStore.add(payload.track);
         TrackStore.emit("track-update");
         break;
