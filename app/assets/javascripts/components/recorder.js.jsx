@@ -35,6 +35,7 @@ var Recorder = React.createClass({
 
   updateTitle: function (e) {
     this.setState({title: e.currentTarget.value});
+    this.state.track.setName(this.state.title);
   },
 
   render: function () {

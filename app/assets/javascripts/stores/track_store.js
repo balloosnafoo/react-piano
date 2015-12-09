@@ -18,8 +18,12 @@
   AppDispatcher.register(function (payload) {
     switch (payload.actionType) {
       case "ADD_TRACK":
+        TrackStore.add(payload.track);
+        TrackStore.emit("track-update");
         break;
       case "DELETE_TRACK":
+        TrackStore.delete(payload.track);
+        TrackStore.emit("track-update");
         break;
     }
   });

@@ -4,6 +4,10 @@
     this.roll = [];
   };
 
+  Track.prototype.setName = function (name) {
+    this.name = name;
+  };
+
   Track.prototype.startRecording = function () {
     this.roll = [];
     this.startTime = Date.now();
